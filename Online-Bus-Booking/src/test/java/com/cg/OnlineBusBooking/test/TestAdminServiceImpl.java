@@ -2,14 +2,12 @@ package com.cg.OnlineBusBooking.test;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.cg.OnlineBusBooking.entities.Booking;
 import com.cg.OnlineBusBooking.entities.Bus;
 import com.cg.OnlineBusBooking.repositories.IBookingRepository;
 import com.cg.OnlineBusBooking.repositories.IBusRepository;
@@ -45,15 +43,12 @@ class TestAdminServiceImpl {
 //	@Test
 	@Transactional
 	void testUpdateBusTime() {
-		Bus bus = new Bus("ABC123",2,200);
+		
 		LocalTime startTime = LocalTime.parse("08:00");
 		LocalTime endTime = LocalTime.parse("13:00");
 		adminServiceImpl.updateBusTime(12341, startTime, endTime);
 		
-//		List<Booking> b = bookingRepository.findByBusBusNumber(bus.getBusNumber());
-//		//System.out.println(bus);
-//		System.out.println(b);
-//		System.out.println(b.getJourneyStartTime());
+
 	}
 
 //	@Test
@@ -62,10 +57,7 @@ class TestAdminServiceImpl {
 		Bus bus = new Bus("ABC123",2,200);
 		String busRoute = "aaa";
 		adminServiceImpl.updateBusRoute(bus, busRoute);
-		List<Booking> b = bookingRepository.findByBusBusNumber(bus.getBusNumber());
-//		System.out.println(bus);
-//		System.out.println(b);
-//		System.out.println(b.getBusRoute());
+		
 	}
 
 //	@Test
