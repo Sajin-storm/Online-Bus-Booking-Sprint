@@ -16,7 +16,7 @@ class TestBookingService {
 	@Autowired
 	IBookingService bookingService;
 	
-//	@Test
+	@Test
 	void testAddBooking() {
 		Booking b = new Booking(123,"Ramesh","XYZ123","C","D",3,300,null,null,null,null,null,null);
 		bookingService.addBooking(b);
