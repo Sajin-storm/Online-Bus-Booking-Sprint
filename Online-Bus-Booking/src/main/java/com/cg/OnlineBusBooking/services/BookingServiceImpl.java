@@ -138,10 +138,10 @@ public class BookingServiceImpl implements IBookingService {
 		}
 		
 		Optional<Booking> b1 = bookingRepository.findByUsernameAndBusNumber(booking.getUsername(),booking.getBusNumber());
-		Bus bus = busRepository.findByBusNumber(booking.getBusNumber());
-		if(bus == null) {
-			throw new BookingNotFoundException("Bus with number "+booking.getBusNumber() +" not found!!!");
-		}
+		 Bus bus = busRepository.findByBusNumber(booking.getBusNumber());
+		 if(bus == null) {
+		 	throw new BookingNotFoundException("Bus with number "+booking.getBusNumber() +" not found!!!");
+		 }
 		Booking b = null;
 		if(b1.isPresent()) {
 			throw new BookingAlreadyExistException("Booking already exist by the user "+booking.getUsername()+" on the Bus Number "+booking.getBusNumber()+" !!!");

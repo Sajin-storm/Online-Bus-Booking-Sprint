@@ -5,6 +5,7 @@ import java.time.LocalTime;
 
 import javax.transaction.Transactional;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -25,12 +26,12 @@ class TestAdminServiceImpl {
 	@Autowired
 	IBusRepository busRepository;
 	
-//	@Test
+	@Test
 	void testGetAllBusOperator() {
 		System.out.println(adminServiceImpl.getAllBusOperator());
 	}
 
-	//@Test
+//	@Test
 	void testGetAllBusOperatorByRoute() {
 		System.out.println(adminServiceImpl.getAllBusOperatorByRoute("AtoB"));
 	}

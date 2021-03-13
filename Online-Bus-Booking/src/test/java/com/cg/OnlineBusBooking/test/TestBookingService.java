@@ -2,6 +2,8 @@ package com.cg.OnlineBusBooking.test;
 
 import java.time.LocalDate;
 
+import javax.transaction.Transactional;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,8 +19,9 @@ class TestBookingService {
 	IBookingService bookingService;
 	
 	@Test
+	@Transactional
 	void testAddBooking() {
-		Booking b = new Booking(123,"Ramesh","XYZ123","C","D",3,300,null,null,null,null,null,null);
+		Booking b = new Booking(1234,"Priya","ABC123","C","D",3,300,null,null,null,null,null,null);
 		bookingService.addBooking(b);
 	}
 
@@ -29,12 +32,12 @@ class TestBookingService {
 
 //	@Test
 	void testDeleteBooking() {
-		bookingService.deleteBooking(45);
+		bookingService.deleteBooking(103);
 	}
 
 //	@Test
 	void testGetBookingDetailsById() {
-		bookingService.getBookingDetailsById(45);
+		bookingService.getBookingDetailsById(101);
 	}
 
 //	@Test
