@@ -13,7 +13,7 @@ public interface IBookingService {
 	
 	public long addBooking(Booking booking);
 	
-	public boolean updateBookingDate(long bookingId);
+	public boolean updateBookingDate(long bookingId, String date);
 
 	public boolean deleteBooking (long bookingid);
 
@@ -31,5 +31,7 @@ public interface IBookingService {
 
 	public void addFeedback(String username, long bookingid, String comment);
 
-	
+	public List<String> findAllBusNumbers();
+
+	public List<Booking> findAllBookingByUser(String username);
 }

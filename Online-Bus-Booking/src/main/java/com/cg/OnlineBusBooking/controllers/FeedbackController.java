@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ import javassist.NotFoundException;
 //Code start - By Dhavala B
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/v1/feedbacks") //URL specification before every method
 @Api(value = "Feedback", tags = { "FeedbackAPI" })
 public class FeedbackController {
@@ -72,5 +74,11 @@ public class FeedbackController {
 	}
 	
 	//Code end - By Dhavala B
+	
+	@GetMapping("/getall/")
+	@ResponseStatus(HttpStatus.FOUND)
+	public List<Feedback> getAllFeedbacks(){
+		return feedbackService.getAllFeedbacks();
+	}
 
 }

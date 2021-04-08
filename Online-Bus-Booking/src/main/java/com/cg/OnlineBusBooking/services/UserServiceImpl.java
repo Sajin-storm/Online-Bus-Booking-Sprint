@@ -83,5 +83,36 @@ public class UserServiceImpl implements IUserService {
 		return userRepository.findAll();
 	}
 	
-//Code end - By Sagar KC	
+//Code end - By Sagar KC
+	
+	@Override
+	public User findByUsername(String username) {
+		User newUser = null;
+		Optional<User> u =userRepository.findByUsername(username);
+		if(u.isPresent()) {
+			newUser = u.get();
+		} else {
+			throw new UserNotFoundException("User not found!!!");
+		}
+		return newUser;
+	}
+
+	public boolean signIn(String username, String password){
+		boolean result = false;
+		User newUser = null;
+		Optional<User> u = userRepository.findByUsername(username);
+		if(u.isPresent()){
+			newUser = u.get();
+		} else {
+			throw new UserAlreadyExistException("User with Username: "+username+" not found!!!");
+		}
+
+		if(password == newUser.getPassword() ){
+			result = true;
+			throw new UserNotFoundException("Password doesn't match Try again!!!");
+		} 
+		return result;
+
+	}
 }
+

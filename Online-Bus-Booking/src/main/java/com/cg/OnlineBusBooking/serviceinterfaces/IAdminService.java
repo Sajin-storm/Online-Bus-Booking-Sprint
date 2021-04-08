@@ -33,4 +33,8 @@ public interface IAdminService {
 	public int getRevenueByBusRoute(String route);
 	
 	public int getRevenueByBusOperator(String operator);
+
+	List<Bus> getAllBus();
+
+	void deleteBus(String busNumber);
 }

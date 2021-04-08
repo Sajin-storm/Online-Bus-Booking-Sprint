@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,7 @@ import javassist.NotFoundException;
 //Code start - By All
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "api/v1/admin") //URL specification before every method
 @Api(value = "Admin", tags = { "AdminAPI" })
 public class AdminController {
@@ -189,7 +191,17 @@ public class AdminController {
 	public int getRevenueByBusOperator(@PathVariable("busOperatorUsername") String busOperatorUsername) {
 		return adminService.getRevenueByBusOperator(busOperatorUsername);
 	}
-
-	//Code end - By All	
 	
+	//Code end - By All	
+	@GetMapping("/getallbus/")
+	@ResponseStatus(HttpStatus.FOUND)
+	public List<Bus> getAllBus() {
+		return adminService.getAllBus();
+	}
+	
+	@DeleteMapping("/deletebus/{busNumber}")
+	@ResponseStatus(HttpStatus.OK)
+	public void deleteBus(@PathVariable("busNumber") String busNumber) {
+		adminService.deleteBus(busNumber);
+	}
 }

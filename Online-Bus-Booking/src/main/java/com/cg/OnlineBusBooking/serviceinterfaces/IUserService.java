@@ -15,5 +15,9 @@ public interface IUserService {
 	public void updateUser(String username, String password);
 	
 	public List<User> getAllUsers();
+
+	User findByUsername(String username);
+
+	public boolean signIn(String username, String password);
 	
 }

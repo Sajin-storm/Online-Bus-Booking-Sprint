@@ -116,5 +116,16 @@ public class BusOperatorServiceImpl implements IBusOperatorService{
 	}
 	
 	//Code end - By Saurabh Dadhich
+
+	@Override
+	public BusOperator getAllBusOperatorByUsername(String busOperatorUsername) {
+		BusOperator busOp = busOperatorRepository.findByBusOperatorUsername(busOperatorUsername);
+		if(busOp==null) {
+			throw new BusOperatorAlreadyExistsException("Bus Operator doesn't exist!");
+		}
+		else {
+			return busOp;
+		}
+	}
 	
 }

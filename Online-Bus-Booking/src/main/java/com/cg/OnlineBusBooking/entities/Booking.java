@@ -55,12 +55,12 @@ public class Booking {
 	//Unidirectional mapping to BusRoute table
 	@ManyToOne(cascade = CascadeType.ALL)
 	@ApiModelProperty(notes = "Bus route for booking [BusRoute ID]")
-	BusRoute busRoute;
+	BusRoute busRoute; //many bookings can be done on same busRoute
 	
 	//Unidirectional mapping to Bus table
 	@ManyToOne(cascade = CascadeType.ALL)
 	@ApiModelProperty(notes = "Bus for booking [Bus ID]")
-	Bus bus;
+	Bus bus; //many bookings can be done on same bus
 	
 	//Non-parameterized constructor
 	public Booking() {

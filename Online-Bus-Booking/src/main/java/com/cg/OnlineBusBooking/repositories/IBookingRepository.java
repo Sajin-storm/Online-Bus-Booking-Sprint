@@ -16,7 +16,7 @@ public interface IBookingRepository extends JpaRepository<Booking,Integer>{
 	
 	public Optional<Booking> findById(int id);
 	
-	public Booking findByUsername(String username);
+	public List<Booking> findByUsername(String username);
 	
 	public List<Booking> findByDate(LocalDate date);
 	

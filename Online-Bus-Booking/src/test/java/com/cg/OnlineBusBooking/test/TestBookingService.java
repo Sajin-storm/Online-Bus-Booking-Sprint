@@ -1,8 +1,7 @@
 package com.cg.OnlineBusBooking.test;
 
 import java.time.LocalDate;
-
-import javax.transaction.Transactional;
+import java.time.LocalTime;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,59 +18,61 @@ class TestBookingService {
 	IBookingService bookingService;
 	
 	@Test
-	@Transactional
 	void testAddBooking() {
-		Booking b = new Booking(1234,"Priya","ABC123","C","D",3,300,null,null,null,null,null,null);
+		Booking b = new Booking(56738,"Arijith","ABC123","C","D",4,400,null,null,null,null,null,null);
+		b.setDate(LocalDate.parse("2021-03-14"));
+		b.setJourneyStartTime(LocalTime.parse("09:00"));
+		b.setJourneyEndTime(LocalTime.parse("20:00"));
 		bookingService.addBooking(b);
 	}
 
-//	@Test
+	@Test
 	void testUpdateBookingDate() {
-		bookingService.updateBookingDate(45);
+		bookingService.updateBookingDate(101,"2021-03-02");
 	}
 
-//	@Test
+	@Test
 	void testDeleteBooking() {
-		bookingService.deleteBooking(103);
+		bookingService.deleteBooking(1234);
 	}
 
-//	@Test
+	@Test
 	void testGetBookingDetailsById() {
 		bookingService.getBookingDetailsById(101);
 	}
 
-//	@Test
+	@Test
 	void testGetAllBookingByDate() {
 		LocalDate date = LocalDate.parse("2021-03-02");
 		bookingService.getAllBookingByDate(date);
 	}
 
-//	@Test
+	@Test
 	void testGetAllBookingByBusRoute() {
 		bookingService.getAllBookingByBusRoute("A to B");
 	}
 
-//	@Test
+	@Test
 	void testGetFeedbackByBusRoute() {
 		bookingService.getFeedbackByBusRoute("A to B");
 	}
 
-//	@Test
+	@Test
 	void testFindAllBookings() {
 		bookingService.findAllBookings();
 	}
 
-//	@Test
+	@Test
 	void testAddFeedbackUserLong() {
 		User user = new User();
 		user.setUsername("Ravi");
 		user.setPassword("Ravi123");
-		bookingService.addFeedback(user, 45);
+		bookingService.addFeedback(user, 101);
 	}
 
-//	@Test
+	@Test
 	void testAddFeedbackStringLongString() {
-		bookingService.addFeedback("Ravi", 45, "Good ride");
+		bookingService.addFeedback("Ravi", 101, "Good ride");
 	}
 
 }

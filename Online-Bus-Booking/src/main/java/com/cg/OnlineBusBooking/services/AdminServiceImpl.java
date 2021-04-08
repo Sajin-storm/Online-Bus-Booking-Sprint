@@ -128,6 +128,8 @@ public class AdminServiceImpl implements IAdminService{
 				busOpR.setBus(null);
 				//busOperatorRequestRepository.delete(busOpR);	
 			}
+			
+			
 //			List<Feedback> feedback = feedbackRepository.
 			b.setBusRoute(null);
 			b.setBusOperator(null);
@@ -212,5 +214,40 @@ public class AdminServiceImpl implements IAdminService{
 	
 	//Code end - By Saurabh Dadhich
 	
+	
+	@Override
+	public List<Bus> getAllBus(){
+		return busRepository.findAll();
+	}
+	
+	
+	@Override
+	public void deleteBus(String busNumber) {
+		Bus b = busRepository.findByBusNumber(busNumber);
+		if(b != null) {
+			List<Booking> booking = bookingRepository.findByBusBusNumber(b.getBusNumber());
+			for(Booking book : booking) {
+				book.setBus(null);
+				//bookingRepository.delete(book);	
+			}
+			List<BusOperator> busOperator = busOperatorRepository.findByBusBusNumber(b.getBusNumber());
+			for(BusOperator busOp : busOperator) {
+				busOp.setBus(null);
+			}
+			List<BusOperatorRequest> busOperatorRequest = busOperatorRequestRepository.findByBusBusNumber(b.getBusNumber());
+			for(BusOperatorRequest busOpR : busOperatorRequest) {
+				busOpR.setBus(null);
+				//busOperatorRequestRepository.delete(busOpR);	
+			}
+			
+			
+//			List<Feedback> feedback = feedbackRepository.
+			b.setBusRoute(null);
+			b.setBusOperator(null);
+			busRepository.delete(b);
+		} else {
+			throw new BusDoesnotExistException("Bus does not exist!");
+		}
+	}
 }
 

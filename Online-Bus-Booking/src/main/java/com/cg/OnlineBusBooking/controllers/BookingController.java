@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,9 +29,39 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import javassist.NotFoundException;
 
+
+class Message{
+	String text;
+	List<Booking> bookings;
+	
+
+	public Message(String text) {
+		super();
+		this.text = text;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> employees) {
+		this.bookings = employees;
+	}
+		
+}
+
 //Code start - By Sajin S & Sadathulla Shariff
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(path = "/api/v1/bookings") //URL specification before every method
 @Api(value = "Booking", tags = { "BookingAPI" })
 public class BookingController {
@@ -59,12 +90,12 @@ public class BookingController {
 	 * @return boolean
 	 * @throws BookingNotFoundException
 	 */
-	@PutMapping("/update/{bookingId}")
+	@PutMapping("/update/{bookingId}:{date}")
 	@ResponseStatus(HttpStatus.OK)
 	@Transactional
 	@ApiOperation(value = "Update a booking date", notes = "Provide date in YYYY-MM-DD format", response = Booking.class)
-	public boolean updateBookingDate (@PathVariable("bookingId") long bookingId) {
-		return bookingService.updateBookingDate(bookingId);
+	public boolean updateBookingDate (@PathVariable("bookingId") long bookingId,@PathVariable("date") String date) {
+		return bookingService.updateBookingDate(bookingId,date);
 	}
 	
 	/**
@@ -179,4 +210,15 @@ public class BookingController {
 
 	//Code end - By Sajin S & Sadathulla Shariff	
 	
+	@GetMapping("/get/busNumbers")
+	@ResponseStatus(HttpStatus.CREATED)
+	public void getAllBusNumbers() {
+		bookingService.findAllBusNumbers();
+	}
+
+	@GetMapping("/get/byusername/{username}")
+	@ResponseStatus(HttpStatus.CREATED)
+	public List<Booking> findAllBookingByUser(@PathVariable("username") String username){
+		return bookingService.findAllBookingByUser(username);
+	}
 }

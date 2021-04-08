@@ -1,8 +1,11 @@
 	package com.cg.OnlineBusBooking.services;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +25,7 @@ import com.cg.OnlineBusBooking.repositories.IUserRepository;
 import com.cg.OnlineBusBooking.serviceinterfaces.IBookingService;
 
 @Service
+@Transactional
 public class BookingServiceImpl implements IBookingService {
 	
 	//Dependency injections of required repositories
@@ -43,14 +47,14 @@ public class BookingServiceImpl implements IBookingService {
 	
 	//Code start - By Sadathulla Shariff
 	
-	//getAllBookingByDate(LocalDate):List<Booking>
+	//getting all booking by date
 	@Override
 	public List<Booking> getAllBookingByDate(LocalDate date){
 		List<Booking> booking = bookingRepository.findByDate(date);
 		return booking;
 	}
 	
-	//getAllBookingByBusRoute(String):List<Booking>
+	//getting all bookings by Bus route
 	@Override
 	public List<Booking> getAllBookingByBusRoute(String routeName){
 		List<Booking> booking = bookingRepository.findByBusRouteRouteName(routeName);
@@ -59,19 +63,19 @@ public class BookingServiceImpl implements IBookingService {
 	
 	//Method to update a booking date by its ID
 	@Override
-	public boolean updateBookingDate(long bookingId) {
+	public boolean updateBookingDate(long bookingId,String date) {
 		boolean result = false;
 		Optional<Booking> b = bookingRepository.findByBookingId(bookingId);
 		Booking b1 = null;
 		if(b.isPresent()) {
 			b1 = b.get();
-			b1.setDate(LocalDate.now());
+			b1.setDate(LocalDate.parse(date));
 			result = true;
 		}
 		return result;
 	}
 	
-	//deleteBooking(long):boolean
+	//deleting a booking
 	@Override
 	public boolean deleteBooking (long bookingid) {
 		Optional<Booking> booking = bookingRepository.findByBookingId(bookingid);
@@ -90,7 +94,7 @@ public class BookingServiceImpl implements IBookingService {
 		return result;
 	}
 	
-	//addFeedback(String,long,String):void
+	//adding a feedback passing username , Booking Id and comment
 	@Override
 	public void addFeedback(String username, long bookingid, String comment) {
 		Optional<Booking> booking = bookingRepository.findByBookingId(bookingid);
@@ -124,39 +128,70 @@ public class BookingServiceImpl implements IBookingService {
 	
 	//Code end - By Sadathulla Shariff
 	
+	
 	//Code start - By Sajin S
 	
-	//addBooking(Booking):long
-	@Override
-	public long addBooking(Booking booking) {
-		Optional<User> user = userRepository.findByUsername(booking.getUsername());
-		User u = null;
-		if(user.isPresent()) {
-			u= user.get();
-		} else {
-			throw new UserNotFoundException("User not found!!!");
-		}
-		
-		Optional<Booking> b1 = bookingRepository.findByUsernameAndBusNumber(booking.getUsername(),booking.getBusNumber());
-		 Bus bus = busRepository.findByBusNumber(booking.getBusNumber());
-		 if(bus == null) {
-		 	throw new BookingNotFoundException("Bus with number "+booking.getBusNumber() +" not found!!!");
+	//addBooking a booking 
+	 @Override
+	 public long addBooking(Booking booking) {
+		 Optional<Booking> b1 = bookingRepository.findByBookingId(booking.getBookingId());
+		 Booking b2 = null;
+		 Optional<User> u1 =userRepository.findByUsername(booking.getUsername());
+		 User u2 = null;
+		 if(u1.isPresent()) {
+			 u2 = u1.get();
+		 } else {
+			 throw new UserNotFoundException("User not found!!!");
 		 }
-		Booking b = null;
-		if(b1.isPresent()) {
-			throw new BookingAlreadyExistException("Booking already exist by the user "+booking.getUsername()+" on the Bus Number "+booking.getBusNumber()+" !!!");
-		} 
-		else {
-			b = booking;
-			b.setBus(bus);
-			b.setUser(u);
-			b.setBusRoute(bus.getBusRoute());
-			bookingRepository.save(b);
-			}
-		return booking.getBookingId();
-	}
+		 
+		 Bus bus = busRepository.findByBusNumber(booking.getBusNumber());
+		 if(bus==null) {
+			 throw new BookingNotFoundException("Bus not Found!!!");
+		 }
+		 
+		 if(b1.isPresent()) {
+			 throw new BookingAlreadyExistException("Booking Already exist");
+		 } else {
+			 b2 = booking;
+			 b2.setUser(u2);
+			 b2.setBus(bus);
+			 b2.setBusRoute(bus.getBusRoute());
+			 bookingRepository.save(b2);
+		 }
+		 return booking.getBookingId();
+	 }
+	 
 
-	//getBookingDetailsById(long):Booking
+//		@Override
+//		public long addBooking(Booking booking) {
+//			Optional<User> user = userRepository.findByUsername(booking.getUsername());
+//			User u = null;
+//			if(user.isPresent()) {
+//				u= user.get();
+//			} else {
+//				throw new UserNotFoundException("User not found!!!");
+//			}
+//			
+//			 Bus bus = busRepository.findByBusNumber(booking.getBusNumber());
+//			 if(bus == null) {
+//			 	throw new BookingNotFoundException("Bus with number "+booking.getBusNumber() +" not found!!!");
+//			 }
+//		Optional<Booking> b1 = bookingRepository.findByUsernameAndBusNumber(booking.getUsername(),booking.getBusNumber());
+//			Booking b = null;
+//			if(b1.isPresent()) {
+//				throw new BookingAlreadyExistException("Booking already exist by the user "+booking.getUsername()+" on the Bus Number "+booking.getBusNumber()+" !!!");
+//			} 
+//			else {
+//				b = booking;
+//				b.setBus(bus);
+//				b.setUser(u);
+//				b.setBusRoute(bus.getBusRoute());
+//				bookingRepository.save(b);
+//				}
+//			return booking.getBookingId();
+//		}
+
+	//getting booking details by booking Id
 	@Override
 	public Booking getBookingDetailsById(long bookingid) {
 		Booking b = null;
@@ -170,14 +205,14 @@ public class BookingServiceImpl implements IBookingService {
 		return b;
 	}
 	
-	//getFeedbackByBusRoute(String):List<Booking>
+	//getting feedback details by bus route
 	@Override
 	public List<Feedback> getFeedbackByBusRoute(String routeName){
 		List<Feedback> feedback = feedbackRepository.findByRouteName(routeName);
 		return feedback;
 	}
 	
-	//addFeedback(User,Long):void
+	//adding a feedback passing only User and Booking Id
 	@Override
 	public void addFeedback(User user,long bookingId) {
 		Optional<Booking> booking = bookingRepository.findByBookingId(bookingId);
@@ -204,6 +239,7 @@ public class BookingServiceImpl implements IBookingService {
 		feedbackRepository.save(f);
  	}
 	
+	// finding all the bookings made
 	@Override
 	public List<Booking> findAllBookings(){
 		List<Booking> booking = bookingRepository.findAll();
@@ -214,4 +250,29 @@ public class BookingServiceImpl implements IBookingService {
 	}
 	
 	//Code end - By Sajin S
+	
+	
+	//extra methods
+	@Override
+	public List<String> findAllBusNumbers(){
+		List<Bus> bus = busRepository.findAll();
+		List<String> busNames = new ArrayList<>();
+		for (Bus b : bus) {
+			busNames.add(b.getBusNumber());
+		}
+		return busNames;
+		
+	}
+
+	@Override
+	public List<Booking> findAllBookingByUser(String username){
+		
+		Optional<User> u = userRepository.findByUsername(username);
+		if(!u.isPresent()){
+			throw new UserNotFoundException("User not found!!!");
+		}
+		List<Booking> bookings = bookingRepository.findByUsername(username);
+		
+		return bookings;
+	}
 }

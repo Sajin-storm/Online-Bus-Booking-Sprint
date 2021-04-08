@@ -27,8 +27,8 @@ public class BusOperator {
 	private String busOperatorUsername;
 	@ApiModelProperty(notes = "password for Bus Operator")
 	private String password;
-	@ApiModelProperty(notes = "List of case numbers for Bus Operator")
-	private ArrayList<Integer> caseNumber;
+//	@ApiModelProperty(notes = "List of case numbers for Bus Operator")
+//	private ArrayList<Integer> caseNumber;
 	
 	//Unidirectional mapping to Bus table
 	@ManyToOne(cascade = CascadeType.PERSIST)
@@ -45,7 +45,7 @@ public class BusOperator {
 		super();
 		this.busOperatorUsername = busOperatorUsername;
 		this.password = password;
-		this.caseNumber = caseNumber;
+//		this.caseNumber = caseNumber;
 		this.bus = bus;
 	}
 	
@@ -68,12 +68,12 @@ public class BusOperator {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public ArrayList<Integer> getCaseNumber() {
-		return caseNumber;
-	}
-	public void setCaseNumber(ArrayList<Integer> caseNumber) {
-		this.caseNumber = caseNumber;
-	}
+//	public ArrayList<Integer> getCaseNumber() {
+//		return caseNumber;
+//	}
+//	public void setCaseNumber(ArrayList<Integer> caseNumber) {
+//		this.caseNumber = caseNumber;
+//	}
 	public Bus getBus() {
 		return bus;
 	}
