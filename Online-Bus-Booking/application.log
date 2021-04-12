@@ -1,37 +1,50 @@
-2021-04-08 09:57:35.724  INFO 11644 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 11.0.9 on DESKTOP-H16AAOC with PID 11644 (C:\Users\sajin\eclipse-workspace\Gradle sprint\Online-Bus-Booking\bin\main started by sajin in C:\Users\sajin\eclipse-workspace\Gradle sprint\Online-Bus-Booking)
-2021-04-08 09:57:35.828  INFO 11644 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
-2021-04-08 09:57:36.403  INFO 11644 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-04-08 09:57:36.408  INFO 11644 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-04-08 09:57:40.639  INFO 11644 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-04-08 09:57:41.035  INFO 11644 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 371 ms. Found 8 JPA repository interfaces.
-2021-04-08 09:57:44.264  INFO 11644 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-04-08 09:57:44.299  INFO 11644 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-04-08 09:57:44.301  INFO 11644 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
-2021-04-08 09:57:44.658  INFO 11644 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-04-08 09:57:44.658  INFO 11644 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8247 ms
-2021-04-08 09:57:45.596  INFO 11644 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-04-08 09:57:45.890  INFO 11644 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
-2021-04-08 09:57:46.412  INFO 11644 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-04-08 09:57:47.209  INFO 11644 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-04-08 09:57:49.200  INFO 11644 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-04-08 09:57:49.305  INFO 11644 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2021-04-08 09:57:54.067  INFO 11644 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-04-08 09:57:54.085  INFO 11644 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-04-08 09:57:54.127  INFO 11644 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-04-08 09:57:56.688  WARN 11644 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-04-08 09:57:57.205  INFO 11644 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-04-08 09:57:57.564  INFO 11644 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-04-08 09:57:58.162  INFO 11644 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-04-08 09:57:58.180  INFO 11644 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-04-08 09:57:58.254  INFO 11644 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-04-08 09:57:58.341  INFO 11644 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-04-08 09:57:58.633  INFO 11644 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBusUsingDELETE_1
-2021-04-08 09:57:58.935  INFO 11644 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
-2021-04-08 09:57:59.064  INFO 11644 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
-2021-04-08 09:57:59.099  INFO 11644 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
-2021-04-08 09:57:59.126  INFO 11644 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
-2021-04-08 09:57:59.225  INFO 11644 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 25.47 seconds (JVM running for 31.16)
-2021-04-08 09:57:59.252  INFO 11644 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
-2021-04-08 09:58:41.323  INFO 11644 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-04-08 09:58:41.326  INFO 11644 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-04-08 09:58:41.335  INFO 11644 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2021-04-12 09:48:14.558  INFO 15308 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting OnlineBusBookingApplication using Java 11.0.9 on DESKTOP-H16AAOC with PID 15308 (C:\Users\sajin\eclipse-workspace\Gradle sprint\Online-Bus-Booking\bin\main started by sajin in C:\Users\sajin\eclipse-workspace\Gradle sprint\Online-Bus-Booking)
+2021-04-12 09:48:14.592  INFO 15308 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : No active profile set, falling back to default profiles: default
+2021-04-12 09:48:14.842  INFO 15308 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-12 09:48:14.846  INFO 15308 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-12 09:48:18.832  INFO 15308 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-12 09:48:19.234  INFO 15308 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 363 ms. Found 8 JPA repository interfaces.
+2021-04-12 09:48:22.183  INFO 15308 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-12 09:48:22.219  INFO 15308 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-12 09:48:22.222  INFO 15308 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-12 09:48:22.658  INFO 15308 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-12 09:48:22.660  INFO 15308 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7811 ms
+2021-04-12 09:48:23.520  INFO 15308 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-12 09:48:23.836  INFO 15308 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-12 09:48:24.632  INFO 15308 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-12 09:48:24.972  INFO 15308 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-12 09:48:25.727  INFO 15308 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-12 09:48:25.853  INFO 15308 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-12 09:48:30.612  INFO 15308 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-12 09:48:30.782  INFO 15308 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-12 09:48:30.826  INFO 15308 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-12 09:48:33.976  WARN 15308 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-12 09:48:34.563  INFO 15308 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-04-12 09:48:34.924  INFO 15308 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-12 09:48:35.706  INFO 15308 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-12 09:48:35.711  INFO 15308 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-04-12 09:48:35.799  INFO 15308 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-04-12 09:48:35.943  INFO 15308 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-04-12 09:48:36.392  INFO 15308 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteBusUsingDELETE_1
+2021-04-12 09:48:36.677  INFO 15308 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_1
+2021-04-12 09:48:36.789  INFO 15308 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getRevenueByBusRouteUsingGET_1
+2021-04-12 09:48:36.822  INFO 15308 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addFeedbackUsingPOST_2
+2021-04-12 09:48:36.849  INFO 15308 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: viewAllFeedbacksUsingGET_1
+2021-04-12 09:48:36.952  INFO 15308 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Started OnlineBusBookingApplication in 24.31 seconds (JVM running for 26.664)
+2021-04-12 09:48:37.044  INFO 15308 --- [restartedMain] c.c.O.OnlineBusBookingApplication        : Starting my application with 0 args.
+2021-04-12 10:11:14.922  INFO 15308 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-12 10:11:14.925  INFO 15308 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-12 10:11:14.930  INFO 15308 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-04-12 10:11:15.838  WARN 15308 --- [http-nio-8080-exec-4] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.UserNotFoundException: User not found!!!]
+2021-04-12 10:15:33.069  WARN 15308 --- [http-nio-8080-exec-9] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusDoesnotExistException: Admin does not exists!]
+2021-04-12 10:18:01.908  WARN 15308 --- [http-nio-8080-exec-8] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.BusOperatorAlreadyExistsException: Bus Operator doesn't exist!]
+2021-04-12 10:31:15.013  WARN 15308 --- [http-nio-8080-exec-10] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.UserNotFoundException: User not found!!!]
+2021-04-12 10:31:22.116  WARN 15308 --- [http-nio-8080-exec-6] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.UserNotFoundException: User not found!!!]
+2021-04-12 11:33:03.108  WARN 15308 --- [http-nio-8080-exec-6] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.UserNotFoundException: User not found!!!]
+2021-04-12 11:33:54.513  WARN 15308 --- [http-nio-8080-exec-7] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.UserNotFoundException: User not found!!!]
+2021-04-12 11:34:01.042  WARN 15308 --- [http-nio-8080-exec-6] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.UserNotFoundException: User not found!!!]
+2021-04-12 11:39:01.206  WARN 15308 --- [http-nio-8080-exec-1] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.UserNotFoundException: User not found!!!]
+2021-04-12 11:39:09.213  WARN 15308 --- [http-nio-8080-exec-4] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.UserNotFoundException: User not found!!!]
+2021-04-12 11:39:56.229  WARN 15308 --- [http-nio-8080-exec-6] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.UserNotFoundException: User not found!!!]
+2021-04-12 11:40:17.400  WARN 15308 --- [http-nio-8080-exec-1] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.UserNotFoundException: User not found!!!]
+2021-04-12 11:40:18.858  WARN 15308 --- [http-nio-8080-exec-4] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.cg.OnlineBusBooking.exceptions.UserNotFoundException: User not found!!!]

@@ -8,4 +8,8 @@ import com.cg.OnlineBusBooking.entities.AdminUser;
 @Repository
 public interface IAdminRepository extends JpaRepository<AdminUser,Integer>{
 
+    public AdminUser findByAdminUsername(String adminUsername);
+
+    public AdminUser findByAdminUsernameAndPassword(String adminUsername, String password);
+
 }

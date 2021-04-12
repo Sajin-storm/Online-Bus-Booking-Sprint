@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+import com.cg.OnlineBusBooking.entities.AdminUser;
 import com.cg.OnlineBusBooking.entities.Bus;
 import com.cg.OnlineBusBooking.entities.BusOperator;
 import com.cg.OnlineBusBooking.entities.BusOperatorRequest;
@@ -34,7 +35,18 @@ public interface IAdminService {
 	
 	public int getRevenueByBusOperator(String operator);
 
-	List<Bus> getAllBus();
+	public List<Bus> getAllBus();
 
-	void deleteBus(String busNumber);
+	public void deleteBus(String busNumber);
+
+	public List<AdminUser> viewAllAdmin();
+
+	public void addAdmin(AdminUser admin);
+
+	public void updateAdminPassword(String adminUsername, String password);
+
+	public void deleteAdmin(String adminUsername);
+
+	public void adminSignIn(String adminUsername, String password);
+
 }

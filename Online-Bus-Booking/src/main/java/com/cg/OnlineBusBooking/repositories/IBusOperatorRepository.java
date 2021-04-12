@@ -20,4 +20,6 @@ public interface IBusOperatorRepository extends JpaRepository<BusOperator,Intege
 
 	public List<BusOperator> findByBusBusNumber(String busNumber);
 
+    public BusOperator findByBusOperatorUsernameAndPassword(String busOperatorUsername, String password);
+
 }

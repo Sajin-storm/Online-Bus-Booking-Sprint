@@ -164,5 +164,11 @@ public class BusOperatorController {
 	public BusOperator getBusOperatorByUsername(@PathVariable("busOperatorUsername")String busOperatorUsername){
 		return busOperatorService.getAllBusOperatorByUsername(busOperatorUsername);
 	}
+
+	@GetMapping("/signin/{busOperatorUsername}:{password}")
+	@ResponseStatus(HttpStatus.FOUND)
+	public void busOperatorSignin(@PathVariable("busOperatorUsername")String busOperatorUsername, @PathVariable("password")String password){
+		busOperatorService.busOperatorSignin(busOperatorUsername, password);
+	}
 	
 }

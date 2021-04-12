@@ -18,6 +18,6 @@ public interface IUserService {
 
 	User findByUsername(String username);
 
-	public boolean signIn(String username, String password);
+	public void signIn(String username, String password);
 	
 }

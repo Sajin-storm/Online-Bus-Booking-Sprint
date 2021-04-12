@@ -120,9 +120,9 @@ public class UserController {
 		return userService.findByUsername(username);
 	}
 
-	@PutMapping("/signin/{username}:{password}")
+	@GetMapping("/signin/{username}:{password}")
 	@ResponseStatus(HttpStatus.FOUND)
-	public boolean signIn(@PathVariable("username") String username, @PathVariable("password") String password){
-		return userService.signIn(username, password);
+	public void signIn(@PathVariable("username") String username, @PathVariable("password") String password){
+		 userService.signIn(username, password);
 	}
 }

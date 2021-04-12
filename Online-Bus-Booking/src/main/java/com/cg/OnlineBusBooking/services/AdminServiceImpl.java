@@ -8,11 +8,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cg.OnlineBusBooking.entities.AdminUser;
 import com.cg.OnlineBusBooking.entities.Booking;
 import com.cg.OnlineBusBooking.entities.Bus;
 import com.cg.OnlineBusBooking.entities.BusOperator;
 import com.cg.OnlineBusBooking.entities.BusOperatorRequest;
 import com.cg.OnlineBusBooking.entities.BusRoute;
+import com.cg.OnlineBusBooking.entities.Feedback;
 import com.cg.OnlineBusBooking.exceptions.BusDoesnotExistException;
 import com.cg.OnlineBusBooking.repositories.IAdminRepository;
 import com.cg.OnlineBusBooking.repositories.IBookingRepository;
@@ -249,5 +251,55 @@ public class AdminServiceImpl implements IAdminService{
 			throw new BusDoesnotExistException("Bus does not exist!");
 		}
 	}
+
+	@Override
+	public List<AdminUser> viewAllAdmin(){
+		return adminRepository.findAll();
+	}
+	
+	@Override
+	public void addAdmin(AdminUser admin){
+		AdminUser adminUser = adminRepository.findByAdminUsername(admin.getAdminUsername());
+		if(adminUser == null){
+			adminRepository.save(admin);
+		}
+		else {
+			throw new BusDoesnotExistException("Admin already exists!");
+		}
+
+	}
+
+	@Override
+	public void updateAdminPassword(String adminUsername, String password){
+		AdminUser adminUser = adminRepository.findByAdminUsername(adminUsername);
+		if(adminUser != null){
+			adminUser.setPassword(password);
+		} else {
+			throw new BusDoesnotExistException("Admin does not exists!");
+		}
+
+	}
+
+	@Override
+	public void deleteAdmin(String adminUsername){
+		AdminUser adminUser = adminRepository.findByAdminUsername(adminUsername);
+		if(adminUser != null){
+			adminRepository.delete(adminUser);
+		} else {
+			throw new BusDoesnotExistException("Admin does not exists!");
+		}
+	}
+
+	@Override
+	public void adminSignIn(String adminUsername, String password){
+		AdminUser adminUser = adminRepository.findByAdminUsernameAndPassword(adminUsername,password);
+		if (adminUser == null){
+			throw new BusDoesnotExistException("Admin does not exists!");
+		}
+	}
+		
+	
+
+
 }
 

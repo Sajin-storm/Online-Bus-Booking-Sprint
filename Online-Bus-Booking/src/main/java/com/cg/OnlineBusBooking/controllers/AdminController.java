@@ -6,18 +6,21 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.checkerframework.common.util.report.qual.ReportUse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.OnlineBusBooking.entities.AdminUser;
 import com.cg.OnlineBusBooking.entities.Booking;
 import com.cg.OnlineBusBooking.entities.Bus;
 import com.cg.OnlineBusBooking.entities.BusOperator;
@@ -204,4 +207,39 @@ public class AdminController {
 	public void deleteBus(@PathVariable("busNumber") String busNumber) {
 		adminService.deleteBus(busNumber);
 	}
+
+	@GetMapping("/viewall/")
+	@ResponseStatus(HttpStatus.FOUND)
+	public List<AdminUser> viewAllAdmin(){
+		return adminService.viewAllAdmin();
+	}
+
+	@PostMapping("/add/")
+	@ResponseStatus(HttpStatus.CREATED)
+	public void addAdmin(@RequestBody AdminUser admin){
+		adminService.addAdmin(admin);
+	}
+
+	@PutMapping("/update/password/{adminUsername}:{password}")
+	@Transactional
+	@ResponseStatus(HttpStatus.OK)
+	public void updateAdminPassword(@PathVariable("adminUsername") String adminUsername,@PathVariable("password") String password){
+		adminService.updateAdminPassword(adminUsername, password);
+	}
+
+	@DeleteMapping("/deleteadmin/{adminUsername}")
+	@ResponseStatus(HttpStatus.OK)
+	public void deleteAdmin(@PathVariable("adminUsername") String adminUsername){
+		adminService.deleteAdmin(adminUsername);
+	}
+
+	@GetMapping("/signin/{adminUsername}:{password}")
+	@ResponseStatus(HttpStatus.FOUND)
+	public void adminSignIn(@PathVariable("adminUsername") String adminUsername,@PathVariable("password") String password){
+		adminService.adminSignIn(adminUsername, password);
+	}
+
+
+
+
 }

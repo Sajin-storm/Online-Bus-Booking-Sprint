@@ -97,22 +97,11 @@ public class UserServiceImpl implements IUserService {
 		return newUser;
 	}
 
-	public boolean signIn(String username, String password){
-		boolean result = false;
-		User newUser = null;
-		Optional<User> u = userRepository.findByUsername(username);
-		if(u.isPresent()){
-			newUser = u.get();
-		} else {
-			throw new UserAlreadyExistException("User with Username: "+username+" not found!!!");
+	public void signIn(String username, String password){
+		User user = userRepository.findByUsernameAndPassword(username,password);
+		if(user == null){
+			throw new UserNotFoundException("User not found!!!");
 		}
-
-		if(password == newUser.getPassword() ){
-			result = true;
-			throw new UserNotFoundException("Password doesn't match Try again!!!");
-		} 
-		return result;
-
 	}
 }
 

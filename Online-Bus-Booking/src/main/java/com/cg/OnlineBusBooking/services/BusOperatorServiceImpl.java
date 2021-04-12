@@ -127,5 +127,13 @@ public class BusOperatorServiceImpl implements IBusOperatorService{
 			return busOp;
 		}
 	}
+
+	@Override
+	public void busOperatorSignin(String busOperatorUsername,String password){
+		BusOperator busOperator = busOperatorRepository.findByBusOperatorUsernameAndPassword(busOperatorUsername,password);
+		if(busOperator == null){
+			throw new BusOperatorAlreadyExistsException("Bus Operator doesn't exist!");
+		}
+	}
 	
 }
